@@ -45,8 +45,6 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
         return '남자';
       case Gender.female:
         return '여자';
-      case Gender.other:
-        return '기타';
     }
   }
 

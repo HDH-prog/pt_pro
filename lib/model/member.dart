@@ -1,5 +1,5 @@
-/// 성별 열거형 (남성, 여성, 기타)
-enum Gender { male, female, other }
+/// 성별 열거형 (남성, 여성)
+enum Gender { male, female }
 
 /// 헬스 트레이너 회원 관리용 모델 클래스
 class Member {
