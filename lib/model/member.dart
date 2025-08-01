@@ -16,7 +16,6 @@ class Member {
   int sessionCount; // 수업 횟수
   int currentSessionCount; // 현재 수업 횟수
   String? notes; // 특이사항 (예: 무릎 통증 등)
-  List<Map<String, String>> sessionRecords; // PT 수업 기록
   DateTime createdAt; // 데이터 생성일
   DateTime updatedAt; // 데이터 마지막 수정일
 
@@ -34,7 +33,6 @@ class Member {
     required this.sessionCount,
     required this.currentSessionCount,
     this.notes,
-    required this.sessionRecords,
     required this.createdAt,
     required this.updatedAt,
   });

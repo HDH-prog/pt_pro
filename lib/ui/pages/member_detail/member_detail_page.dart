@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pt_pro/model/member.dart';
 import 'package:intl/intl.dart';
+import 'package:pt_pro/model/member.dart';
+import 'package:pt_pro/ui/pages/member_list/dummy_data.dart';
 
 class MemberDetailPage extends StatefulWidget {
   final Member member;
@@ -62,6 +63,7 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
   @override
   Widget build(BuildContext context) {
     final member = widget.member;
+    final records = sessionRecords[member.id] ?? [];
 
     return Scaffold(
       appBar: AppBar(
@@ -139,7 +141,7 @@ class _MemberDetailPageState extends State<MemberDetailPage> {
 
             sectionTitle('PT 현황'),
             Column(
-              children: member.sessionRecords.map((record) {
+              children: records.map((record) {
                 return Container(
                   margin: const EdgeInsets.only(bottom: 8),
                   padding: const EdgeInsets.all(12),

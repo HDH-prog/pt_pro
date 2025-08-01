@@ -15,13 +15,6 @@ final List<Member> members = [
     sessionCount: 10,
     currentSessionCount: 5,
     notes: '무릎 통증 있음',
-    sessionRecords: [
-      {'type': '10회권', 'count': '1회차', 'date': '2025.07.10', 'status': '수업 완료'},
-      {'type': '10회권', 'count': '2회차', 'date': '2025.07.13', 'status': '수업 완료'},
-      {'type': '10회권', 'count': '3회차', 'date': '2025.07.17', 'status': '수업 완료'},
-      {'type': '10회권', 'count': '4회차', 'date': '2025.07.20', 'status': '수업 완료'},
-      {'type': '10회권', 'count': '5회차', 'date': '2025.07.23', 'status': '수업 완료'},
-    ],
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
   ),
@@ -39,14 +32,24 @@ final List<Member> members = [
     sessionCount: 12,
     currentSessionCount: 4,
     notes: '어깨 긴장 있음',
-    sessionRecords: [
-      {'type': '12회권', 'count': '1회차', 'date': '2025.07.15', 'status': '수업 완료'},
-      {'type': '12회권', 'count': '2회차', 'date': '2025.07.20', 'status': '수업 완료'},
-      {'type': '12회권', 'count': '3회차', 'date': '2025.07.27', 'status': '수업 완료'},
-      {'type': '12회권', 'count': '4회차', 'date': '2025.08.01', 'status': '수업 완료'},
-      {'type': '12회권', 'count': '5회차', 'date': '', 'status': '예약 하기'},
-    ],
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
   ),
 ];
+
+final Map<String, List<Map<String, String>>> sessionRecords = {
+  '1': [
+    {'type': '10회권', 'count': '1회차', 'date': '2025.07.10', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '2회차', 'date': '2025.07.13', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '3회차', 'date': '2025.07.17', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '4회차', 'date': '2025.07.20', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '5회차', 'date': '2025.07.23', 'status': '수업 완료'},
+  ],
+  '2': [
+    {'type': '12회권', 'count': '1회차', 'date': '2025.07.15', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '2회차', 'date': '2025.07.20', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '3회차', 'date': '2025.07.27', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '4회차', 'date': '2025.08.01', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '5회차', 'date': '', 'status': '예약 하기'},
+  ],
+};
