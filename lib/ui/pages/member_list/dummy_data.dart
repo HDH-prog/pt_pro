@@ -1,0 +1,55 @@
+import 'package:pt_pro/model/member.dart';
+
+final List<Member> members = [
+  Member(
+    id: '1',
+    photoUrl: null,
+    name: '김돌쇠',
+    phone: '010-1234-5678',
+    gender: Gender.male,
+    birthDate: DateTime(1990, 5, 10),
+    registrationDate: DateTime(2025, 7, 1),
+    sessionStartDate: DateTime(2025, 7, 10),
+    sessionEndDate: DateTime(2025, 8, 25),
+    ptGoal: ['다이어트', '체형 교정'],
+    sessionCount: 10,
+    currentSessionCount: 5,
+    notes: '무릎 통증 있음',
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+  ),
+  Member(
+    id: '2',
+    photoUrl: null,
+    name: '돌멩이',
+    phone: '010-5678-1234',
+    gender: Gender.female,
+    birthDate: DateTime(1995, 3, 22),
+    registrationDate: DateTime(2025, 7, 5),
+    sessionStartDate: DateTime(2025, 7, 15),
+    sessionEndDate: DateTime(2025, 9, 13),
+    ptGoal: ['벌크업', '체력증진'],
+    sessionCount: 12,
+    currentSessionCount: 4,
+    notes: '어깨 긴장 있음',
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+  ),
+];
+
+final Map<String, List<Map<String, String>>> sessionRecords = {
+  '1': [
+    {'type': '10회권', 'count': '1회차', 'date': '2025.07.10', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '2회차', 'date': '2025.07.13', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '3회차', 'date': '2025.07.17', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '4회차', 'date': '2025.07.20', 'status': '수업 완료'},
+    {'type': '10회권', 'count': '5회차', 'date': '2025.07.23', 'status': '수업 완료'},
+  ],
+  '2': [
+    {'type': '12회권', 'count': '1회차', 'date': '2025.07.15', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '2회차', 'date': '2025.07.20', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '3회차', 'date': '2025.07.27', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '4회차', 'date': '2025.08.01', 'status': '수업 완료'},
+    {'type': '12회권', 'count': '5회차', 'date': '', 'status': '예약 하기'},
+  ],
+};
