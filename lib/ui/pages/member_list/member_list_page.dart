@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pt_pro/ui/pages/member_list/widgets/member_search_bar.dart';
 import 'package:pt_pro/ui/pages/member_list/widgets/member_card.dart';
 import 'package:pt_pro/ui/pages/member_list/dummy_data.dart';
+import 'package:pt_pro/model/member.dart';
+import 'package:pt_pro/ui/pages/member_detail/member_detail_page.dart';
 
 class MemberListPage extends StatefulWidget {
   @override
-  State<MemberListPage> createState() => _MemeberListPage();
+  State<MemberListPage> createState() => _MemberListPage();
 }
 
-class _MemeberListPage extends State<MemberListPage> {
+class _MemberListPage extends State<MemberListPage> {
   TextEditingController textEditingController = TextEditingController();
 
   void search(String text) {
@@ -22,12 +24,17 @@ class _MemeberListPage extends State<MemberListPage> {
     super.dispose();
   }
 
+  void goToDetail(Member member) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MemberDetailPage(member: member)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
@@ -48,27 +55,19 @@ class _MemeberListPage extends State<MemberListPage> {
                 ),
               ),
               SizedBox(height: 8),
-
               Expanded(
                 child: ListView.builder(
                   itemCount: members.length,
                   itemBuilder: (context, index) {
                     final member = members[index];
                     return MemberCard(
-                      name: member['name'] ?? '',
-                      ptCount: member['ptCount'] ?? '',
-                      sessionEndDate: member['sessionEndDate'] ?? '',
-                      onTap: () {
-                        // TODO: 상세페이지 이동
-                      },
+                      member: member,
+                      onTap: () => goToDetail(member), // 상세페이지로 이동
                     );
                   },
                 ),
               ),
-
               SizedBox(height: 12),
-              // 회원 추가 버튼
-              // TODO: 공통 위젯(버튼) 생성하면 바꾸기
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(

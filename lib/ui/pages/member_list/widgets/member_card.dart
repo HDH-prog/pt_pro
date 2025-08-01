@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:pt_pro/model/member.dart';
+import 'package:intl/intl.dart'; // 날짜 포맷을 위한 패키지
 
 class MemberCard extends StatelessWidget {
-  final String name; // 모델클래스 불러올 것
-  final String ptCount; // 모델클래스 불러올 것
-  final String sessionEndDate; // 모델클래스 불러올 것
+  final Member member;
   final VoidCallback? onTap;
 
-  const MemberCard({
-    super.key,
-    required this.name,
-    required this.ptCount,
-    required this.sessionEndDate,
-    this.onTap,
-  });
+  const MemberCard({super.key, required this.member, this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final int remainingSessionCount =
+        member.sessionCount - member.currentSessionCount;
+
+    final String sessionEnd = member.sessionEndDate != null
+        ? DateFormat('yy.MM.dd').format(member.sessionEndDate!)
+        : '미정';
+
     return GestureDetector(
-      onTap: onTap, // TODO: 상세페이지 이동
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 6),
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -30,12 +31,12 @@ class MemberCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  member.name,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 SizedBox(height: 4),
-                Text('PT 남은 회차: $ptCount회'),
-                Text('종료일: $sessionEndDate'),
+                Text('PT 남은 회차: $remainingSessionCount회'),
+                Text('종료일: $sessionEnd'),
               ],
             ),
             Icon(Icons.chevron_right),
